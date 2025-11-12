@@ -1,61 +1,48 @@
-
----
-
-
-Requisitos funcionais mínimos (prioritários)
 RF01 — Autenticação de usuários:
-- Usuários se autenticarão com email e senha.
-- Validação de credenciais, mensagens de erro em caso de falha.
+- Usuários se autenticarão com email e senha (armazenada em texto simples).
+- Validação de credenciais com mensagem de erro em caso de falha.
 - Redirecionamento à interface principal após login.
 
 RF02 — Gestão de usuários:
-- CRUD de usuários (nome, e-mail, função: admin / responsável / instrutor / aluno).
-- Exibir nome do usuário logado.
+- CRUD de usuários com os campos: nome, email e senha.
+- Exibir o nome do usuário logado na interface principal.
 
- RF03 — Cadastro de materiais:
-- CRUD de materiais esportivos (nome, descrição, categoria, quantidade atual, estoque mínimo).
-- Validação de campos obrigatórios.
+RF03 — Cadastro de materiais:
+- CRUD de materiais esportivos com os campos:
+- nome, descrição, categoria, quantidade atual e estoque mínimo.
+- Validação dos campos obrigatórios (não permitir cadastro vazio).
 
 RF04 — Consulta e busca:
 - Listagem dos materiais ao abrir a tela de cadastro.
-- Busca por nome (filtro/auto-complete).
-- Ordenação alfabética.
+- Busca por nome (filtro simples).
+- Ordenação alfabética dos materiais.
 
 RF05 — Gestão de movimentações (estoque):
-- Registrar Empréstimo (saída): decrementa quantidade do material.
-- Registrar Devolução (entrada): incrementa quantidade.
-- Cada movimentação registra: material, usuário (quem retirou/devolveu), tipo (empréstimo/devolução), quantidade, data/hora, observação.
-- Listagem de movimentações por material e por usuário (ordenadas por data).
-  
-RF06 — Controle de estoque mínimo e alertas:
-- Alerta visual/lista de materiais com quantidade < estoque mínimo.
-- Possibilidade de filtro “estoque baixo”.
+- Registrar empréstimo (saída): decrementa a quantidade do material.
+- Registrar devolução (entrada): incrementa a quantidade do material.
+- Cada movimentação registra: material, usuário, tipo (empréstimo/devolução), quantidade, data/hora e observação (opcional).
+- Listagem das movimentações ordenadas por data.
 
-RF07 — Rastreamento e auditoria:
-- Todas as movimentações gravadas com timestamp e usuário responsável.
-- Permite gerar relatório/export CSV das movimentações.
+RF06 — Controle de estoque mínimo e alertas:
+- Exibir alerta visual para materiais com quantidade menor que o estoque mínimo.
+- Filtro opcional para exibir apenas materiais com estoque baixo.
 
 RF08 — Interface principal:
-- Exibe nome do usuário logado e botão logout.
-- Atalhos para “Cadastro de Material” e “Gestão de Estoque”.
+- Exibir o nome do usuário logado e o botão de logout.
+- Atalhos visuais para “Cadastro de Material” e “Gestão de Estoque”.
 
-RF09 — Relatórios básicos:
-- Relatório por período: movimentos, itens emprestados, itens devolvidos.
-- Exportar relatório (CSV ou PDF — opcional).
+⚙️ Requisitos não-funcionais (mínimos)
+RNF01 — Persistência:
+- Utilização de banco de dados relacional (MySQL, PostgreSQL ou SQLite).
 
-RF10 — Segurança básica:
-- Senha armazenada como hash.
-- Rotas protegidas (somente usuários autenticados acessam as telas).
+RNF02 — Desempenho:
+- Performance adequada para poucas centenas de registros.
 
-Requisitos não-funcionais (mínimos)
+RNF03 — Backup/restore:
+- Documentar o procedimento de backup e restauração do banco (não é obrigatório implementar).
 
-RNF01 — Persistência em banco relacional (ex.: PostgreSQL ou MySQL).
-
-RNF02 — Performance adequada para poucas centenas de registros.
-
-RNF03 — Backup/restore (documentar, não obrigatoriamente implementar).
-
-RNF04 — Interface simples e intuitiva (foco em usabilidade para operador do estoque).
+RNF04 — Interface:
+- Interface simples, intuitiva e responsiva, com foco em usabilidade.
 
 
 # 🧦 Sistema de Estoque “meia meia meia”
